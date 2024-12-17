@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    color: #ffffff; /* Cambia el color si es necesario */
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 190px; /* Ajusta este valor para mover más a la derecha */
+    margin-top: -20px; /* Ajusta este valor para subir el botón */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #4273ed;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    min-width: 120px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #3356b8;
+}
+
+.sidebar {
+    width: 240px;
+    background-color: #4273ed;
+    color: white;
+    position: fixed;
+    top: 60px; /* Hace que el menú lateral comience justo debajo del encabezado */
+    left: 0;
+    height: calc(100% - 60px); /* Ajusta la altura restando la altura del encabezado */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 999; /* Debajo del encabezado */
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #4273ed;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease-in-out;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding-left: 10px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #fbfbfb;
+    color: #333;
+    border-radius: 4px;
+    padding-left: 50px;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 40px;
+    width: calc(100% - 250px);
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 60px; /* Ajuste para que el contenido comience debajo del encabezado */
+}   
+
+.main-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #1e1e1e;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.main-content p {
+    font-size: 20px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.main-content button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4273ed;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.main-content button:hover {
+    background-color: #4273ed;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    list-style: none;
+    padding-left: 20px;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-toggle {
+    cursor: pointer;
+}
+
+.accordion-toggle.active + .accordion-content {
+    max-height: 200px;
+}
+
+/* Barra de encabezado superior */
+.top-header {
+    width: 100%; /* Ajusta el ancho restando el ancho de la sidebar */
+    background-color: #2f5bbf; /* Azul más oscuro */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0; /* Alineado al lado derecho de la sidebar */
+    z-index: 1000;
+}
+
+.logo {
+    width: 100px;
+    height: 40px;
+    background-image: url('../img/logo-crons.png'); /* Ruta de la imagen del logo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 20px;
+}
+
+/* Información del usuario */
+.user-info {
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 80px 10px 10px; /* Espacio superior ajustado para la imagen */
+    background-color: #3b5fbd; /* Tonalidad de azul para el fondo */
+    position: relative; /* Necesario para posicionar el círculo de fondo */
+    display: flex; /* Añadido para alinear los elementos */
+    justify-content: space-between; /* Espaciado entre los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+
+}
+
+.user-info::before {
+    content: "";
+    position: absolute;
+    top: 10px; /* Ajusta la posición en el contenedor */
+    left: 20%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: #fff; /* Color blanco de fondo del círculo */
+    border: 2px solid #17a2b8; /* Borde de color azul alrededor del círculo */
+    border-radius: 50%; /* Forma circular */
+    z-index: 1;
+}
+
+.user-info::after {
+    content: "";
+    position: absolute;
+    top: 20px; /* Ajusta la posición de la imagen */
+    left: 20%;
+    transform: translateX(-50%);
+    width: 40px; /* Ajusta el tamaño de la imagen */
+    height: 40px;
+    background-image: url("../img/user-login.png"); /* Ruta de la imagen */
+    background-size: cover; /* Asegura que la imagen se ajuste al contenedor */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%; /* Opcional: redondea la imagen si es necesario */
+    z-index: 2; /* Coloca la imagen por delante del círculo */
+}
+
+.user-info .user {
+    display: flex;
+    flex-direction: column; /* Coloca los párrafos uno debajo del otro */
+    align-items: flex-start; /* Alinea el contenido a la izquierda */
+    position: relative;
+    margin-top: 10px;
+    margin-right: 70px;
+}
+
+.user-info .user p {
+    margin: 0;
+}
+
+.user-info .user p:first-child {
+    font-size: 14px; /* Tamaño del nombre del usuario */
+    font-weight: bold;
+}
+
+.user-info .user p:last-child {
+    font-size: 12px; /* Tamaño más pequeño para el correo */
+    color: #dcdcdc; /* Un tono más claro para el correo */
+}
